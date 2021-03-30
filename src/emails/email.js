@@ -16,7 +16,7 @@ const sendWelcomeEmail = async (name,email)=>{
     const transporterObject = transporter()
     await transporterObject.sendMail({
 to:email,
-from:'lucas_molequetravesso3@hotmail.com',
+from:process.env.EMAIL,
 subject:'Thanks for joining',
 text:`Welcome to the app ${name}! Let me know how you get along with the app.`
     })
@@ -27,7 +27,7 @@ const sendLeavingEmail = async (name,email)=>{
 const transporterObject = transporter()
 await transporterObject.sendMail({
     to:email,
-    from:'lucas_molequetravesso3@hotmail.com',
+    from:process.env.EMAIL,
     subject:'Why you leaving!',
     text:`Hi! ${name} let us know why you leaving!?`
 })
