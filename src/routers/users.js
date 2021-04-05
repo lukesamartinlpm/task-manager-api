@@ -77,7 +77,6 @@ try{ req.users.token = []
 res.send()
 }catch(e){
 res.status(500).send(e)
-console.log(e)
 }
 })
 
@@ -135,7 +134,6 @@ router.post('/users/login',async (req,res)=>{
    res.send({user,token})
    }catch(e){
        res.status(404).send(e)
-       console.log(e)
         }
     })
 

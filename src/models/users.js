@@ -49,8 +49,8 @@ usersSchema.virtual('userTasks',{
 //Credentials/tokens
 usersSchema.methods.toJSON = function(){
 const user = this.toObject()
-    delete user.tokens
-delete user.password
+ //   delete user.tokens
+ delete user.password
 return user
 }
 

@@ -73,7 +73,7 @@ router.get('/tasks/',authToken,async (req,res)=>{
      try{
       const task = new tasks({...req.body,owner:req.user._id})
       await task.save()
-     res.send(task)
+     res.status(201).send(task)
    }catch(e){
         res.status(500).send()
      }  
@@ -84,7 +84,7 @@ router.delete('/tasks/:id',authToken,async (req,res)=>{
        try{
          const task = await tasks.findOneAndDelete({_id:req.params.id,owner:req.user._id})
          if(!task){
-            res.status(404).send()
+           return res.status(404).send()
          }
             res.send(task)
          }catch(e){
